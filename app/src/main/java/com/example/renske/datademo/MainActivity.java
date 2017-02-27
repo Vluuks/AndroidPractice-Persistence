@@ -8,7 +8,6 @@ import android.widget.Switch;
 
 public class MainActivity extends AppCompatActivity {
 
-    Switch aSwitch; // switch is a protected name, you cannot use it since it also refers to an expression
     EditText editText;
     RatingBar ratingBar;
 
