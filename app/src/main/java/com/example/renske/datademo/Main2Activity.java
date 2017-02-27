@@ -51,8 +51,16 @@ public class Main2Activity extends AppCompatActivity {
         SharedPreferences prefs = this.getSharedPreferences("settings", this.MODE_PRIVATE);
 
         if(prefs != null) {
-            int ratingBarValue2 = prefs.getInt("ratingBar", 0);
-            String editTextValue2 = prefs.getString("editText", "default");
+            int ratingBarValue2 = prefs.getInt("ratingBar", -1);
+            String editTextValue2 = prefs.getString("editText", null);
+
+            // Re set the values
+            if(ratingBarValue2 != -1){
+                ratingBar.setNumStars(ratingBarValue2);
+            }
+            if(editTextValue2 != null){
+                editText.setText(editTextValue2);
+            }
         }
     }
 }
