@@ -2,14 +2,17 @@ package com.example.renske.datademo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.Switch;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText editText;
-    RatingBar ratingBar;
+    TextView textView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize views
         editText = (EditText) findViewById(R.id.editText);
-        ratingBar = (RatingBar) findViewById(R.id.ratingBar);
+        textView = (TextView) findViewById(R.id.textView);
+
 
     }
 
@@ -28,26 +32,26 @@ public class MainActivity extends AppCompatActivity {
     public void onSaveInstanceState(Bundle outState){
         super.onSaveInstanceState(outState);
 
-        // Get rating value
-        int ratingBarValue = ratingBar.getNumStars();
-        outState.putInt("ratingBar", ratingBarValue);
-
-        // Get edittext value and add it to the bundle
-        String editTextValue = editText.getText().toString();
-        outState.putString("editText", editTextValue);
+        String textViewValue = textView.getText().toString();
+        outState.putString("textView", textViewValue);
 
     }
 
 
+    /* And do something with the bundle when the state is restored. */
     @Override
     public void onRestoreInstanceState(Bundle inState){
         super.onRestoreInstanceState(inState);
 
-        // Extract values
-        int ratingBarValue2 = inState.getInt("ratingBar");
-        String editTextValue2 = inState.getString("editText");
+        String textViewValueRestored = inState.getString("textView");
+        textView.setText(textViewValueRestored);
 
-        editText.setText(editTextValue2);
-        ratingBar.setNumStars(ratingBarValue2);
+    }
+
+    public void setText(View view) {
+
+        String text = editText.getText().toString();
+        textView.setText(text);
+
     }
 }

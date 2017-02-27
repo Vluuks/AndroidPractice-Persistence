@@ -11,19 +11,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.renske.datademo.Main2Activity">
 
-    <RatingBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ratingBar"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text=""
         android:ems="10"
         android:layout_below="@+id/switch1"
         android:layout_alignRight="@+id/ratingBar"
@@ -33,12 +26,21 @@
         android:layout_marginTop="18dp"
         android:id="@+id/editText" />
 
+
+
     <Button
         android:text="Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button"
         android:onClick="saveToSharedPrefs"/>
+
+    <Button
+        android:text="Go to 2nd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:onClick="makeIntent"/>
 
 
 </LinearLayout>
